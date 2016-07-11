@@ -1,7 +1,8 @@
-package android.weixin.com.weixin_follow;
+package com.weixin.android.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.weixin.com.weixin_follow.R;
 
 public class MainActivity extends AppCompatActivity {
 
