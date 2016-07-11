@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"></android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view_line"
+        ></android.support.v4.view.ViewPager>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/radiogroup"
+        android:background="#B9B9B9"></View>
+
+    <com.weixin.android.coutomview.WechatRadioGroup
+        android:id="@+id/radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <com.weixin.android.coutomview.WechatRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:drawablePadding="3dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="3dp"
+            android:text="微信"
+            android:textColor="#555"
+            android:textSize="12sp"
+            app:defocus_icon="@drawable/chats"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/chats_green"/>
+
+        <com.weixin.android.coutomview.WechatRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="3dp"
+            android:text="通讯录"
+            android:textColor="#555"
+            android:textSize="12sp"
+            app:defocus_icon="@drawable/contacts"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/contacts_green"/>
+
+        <com.weixin.android.coutomview.WechatRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="3dp"
+            android:text="发现"
+            android:textColor="#555"
+            android:textSize="12sp"
+            app:defocus_icon="@drawable/discover"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/discover_green"/>
+
+        <com.weixin.android.coutomview.WechatRadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="3dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="3dp"
+            android:text="我"
+            android:textColor="#555"
+            android:textSize="12sp"
+            app:defocus_icon="@drawable/about_me"
+            app:focus_color="#50ba26"
+            app:focus_icon="@drawable/about_me_green"/>
+    </com.weixin.android.coutomview.WechatRadioGroup>
 
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.weixin.android.R;
+import com.weixin.android.coutomview.WechatRadioGroup;
 import com.weixin.android.fragment.FourFragment;
 import com.weixin.android.fragment.OneFragment;
 import com.weixin.android.fragment.SecondFragment;
@@ -15,7 +16,7 @@ import com.weixin.android.fragment.ThreeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppBaseActivity implements ViewPager.OnPageChangeListener{
+public class MainActivity extends AppBaseActivity implements ViewPager.OnPageChangeListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -27,6 +28,8 @@ public class MainActivity extends AppBaseActivity implements ViewPager.OnPageCha
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
     private List<Fragment> mFragments = new ArrayList<>();
+
+    private WechatRadioGroup mGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,10 @@ public class MainActivity extends AppBaseActivity implements ViewPager.OnPageCha
         mViewPager.setAdapter(mViewPagerAdapter);
         mViewPager.addOnPageChangeListener(this);
 
+        mGroup = (WechatRadioGroup) findViewById(R.id.radiogroup);
+        mGroup.setViewPager(mViewPager);
+
+
     }
 
     private void addPager() {
@@ -56,7 +63,7 @@ public class MainActivity extends AppBaseActivity implements ViewPager.OnPageCha
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    public void onPageScrolled(int position, float positionOffset, int positionetPixels) {
 
     }
 
