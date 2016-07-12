@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.weixin.android.R;
 
@@ -12,6 +13,9 @@ import com.weixin.android.R;
  * Created by sujizhong on 16/7/11.
  */
 public class OneFragment extends AppBaseFragment{
+
+    private ListView mListView;
+
 
     @Nullable
     @Override
@@ -23,6 +27,11 @@ public class OneFragment extends AppBaseFragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        init();
+    }
+
+    private void init(){
         View v = getView();
+
     }
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/selecter_item_list"
+    android:orientation="vertical"
+    >
+
+    <ImageView
+        android:id="@+id/currimage"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="4dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:id="@+id/text_photo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/currimage"
+        android:maxLines="2"
+        android:singleLine="false"
+        android:textColor="#333333"
+        android:textSize="14sp"
+        />
+
+    <TextView
+        android:id="@+id/text_photo_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_photo_title"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/currimage"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="14sp"
+        />
+
+    <View
+        android:id="@+id/view_line_one"
+        android:layout_width="1dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@+id/currimage"
+        android:background="#999999"></View>
+
+    <View
+        android:id="@+id/view_line_line_one"
+        android:layout_width="1dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/view_line_one"
+        android:background="#B2B2B2"></View>
+
+
+    <View
+        android:id="@+id/view_line_bottom"
+        android:layout_width="85dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/currimage"
+        android:layout_marginLeft="4dp"
+        android:background="#999999"></View>
+
+    <View
+        android:id="@+id/view_line_line_bottom"
+        android:layout_width="86dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/view_line_bottom"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="4dp"
+        android:background="#B2B2B2"></View>
+
+    <ImageView
+        android:id="@+id/image_current"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="32dp"
+        android:src="@drawable/picture_unselected"></ImageView>
+
+
+</RelativeLayout>

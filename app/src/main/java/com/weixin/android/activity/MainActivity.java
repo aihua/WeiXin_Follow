@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 
 import com.weixin.android.R;
 import com.weixin.android.coutomview.WechatRadioGroup;
-import com.weixin.android.fragment.FourFragment;
+import com.weixin.android.fragment.MeFragment;
 import com.weixin.android.fragment.OneFragment;
 import com.weixin.android.fragment.SecondFragment;
 import com.weixin.android.fragment.ThreeFragment;
@@ -16,14 +16,14 @@ import com.weixin.android.fragment.ThreeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppBaseActivity implements ViewPager.OnPageChangeListener {
+public class MainActivity extends AppBaseActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private OneFragment mOneFragment;
     private SecondFragment mSecondFragment;
     private ThreeFragment mThreeFragment;
-    private FourFragment mFourFragment;
+    private MeFragment mFourFragment;
 
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
@@ -43,12 +43,9 @@ public class MainActivity extends AppBaseActivity implements ViewPager.OnPageCha
         addPager();
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mViewPagerAdapter);
-        mViewPager.addOnPageChangeListener(this);
 
         mGroup = (WechatRadioGroup) findViewById(R.id.radiogroup);
         mGroup.setViewPager(mViewPager);
-
-
     }
 
     private void addPager() {
@@ -58,23 +55,8 @@ public class MainActivity extends AppBaseActivity implements ViewPager.OnPageCha
         mFragments.add(mSecondFragment);
         mThreeFragment = new ThreeFragment();
         mFragments.add(mThreeFragment);
-        mFourFragment = new FourFragment();
+        mFourFragment = new MeFragment();
         mFragments.add(mFourFragment);
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
     }
 
     private class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -93,6 +75,5 @@ public class MainActivity extends AppBaseActivity implements ViewPager.OnPageCha
             return mFragments.size();
         }
     }
-
 
 }

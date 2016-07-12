@@ -16,7 +16,7 @@ import android.widget.RadioButton;
 import com.weixin.android.R;
 
 /**
- * Created by Droidroid on 2016/5/10.
+ * Created by sjz on 2016/5/10.
  */
 public class WechatRadioButton extends RadioButton {
 

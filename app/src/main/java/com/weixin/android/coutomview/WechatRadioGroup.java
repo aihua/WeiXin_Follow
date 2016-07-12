@@ -7,9 +7,10 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 /**
- * Created by Droidroid on 2016/5/10.
+ * Created by sjz on 2016/5/10.
  */
-public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChangeListener{
+public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChangeListener {
+
     private ViewPager mViewPager;
 
     public WechatRadioGroup(Context context) {
@@ -25,11 +26,11 @@ public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChan
         mViewPager.addOnPageChangeListener(this);
     }
 
-
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        for (int i = 0; i < getChildCount(); i++) {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
             final int position = i;
             getChildAt(i).setOnClickListener(new OnClickListener() {
                 @Override
@@ -67,14 +68,16 @@ public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChan
     }
 
     private void setSelectedViewChecked(int position) {
-        for (int i = 0; i < getChildCount(); i++) {
+        int childCound = getChildCount();
+        for (int i = 0; i < childCound; i++) {
             ((WechatRadioButton) getChildAt(i)).setChecked(false);
         }
         ((WechatRadioButton) getChildAt(position)).setChecked(true);
     }
 
     private void setClickedViewChecked(int position) {
-        for (int i = 0; i < getChildCount(); i++) {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
             ((WechatRadioButton) getChildAt(i)).setRadioButtonChecked(false);
         }
         ((WechatRadioButton) getChildAt(position)).setRadioButtonChecked(true);
