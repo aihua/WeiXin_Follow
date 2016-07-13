@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Button;
 
+import com.weixin.android.R;
+
 /**
  * Created by sujizhong on 16/7/13.
  */
@@ -33,7 +35,7 @@ public class AudioRecorderButton extends Button {
         int y = (int) event.getY();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                changeCurrentState(0);
+                changeCurrentState(STATE_RECORDERING);
                 break;
 
             case MotionEvent.ACTION_MOVE:
@@ -48,6 +50,7 @@ public class AudioRecorderButton extends Button {
 
             case MotionEvent.ACTION_CANCEL:
                 getCurrentState();
+                changeCurrentState(STATE_NOR);
                 break;
 
             default:
@@ -57,12 +60,32 @@ public class AudioRecorderButton extends Button {
     }
 
     private void changeCurrentState(int state) {
+        if(mCurrentState != state){
+            mCurrentState = state;
+            switch (state){
+                case STATE_NOR:
+                    setText(R.string.but_recorder_nor);
+                    break;
 
+                case STATE_RECORDERING:
+                    setText(R.string.but_recoredering);
+                    if(mIsRecordering){
+
+                    }
+                    break;
+
+                case STATE_WAIT_CANCLE:
+                    setText(R.string.but_recorder_nor);
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 
     private boolean wantToCanle(int x, int y) {
         return false;
-
     }
 
     private void getCurrentState() {

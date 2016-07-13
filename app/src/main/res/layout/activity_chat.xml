@@ -32,8 +32,8 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/selector_recorder_button"
-        android:text="@string/but_recorder_pressed"
-        android:textColor="#727272"
-        android:textSize="14sp"/>
+        android:text="@string/but_recorder_nor"
+        android:textColor="#666666"
+        android:textSize="16sp"/>
 
 </RelativeLayout>

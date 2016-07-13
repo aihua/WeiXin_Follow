@@ -11,27 +11,8 @@
     <string name="za">张</string>
     <string name="max_select_images">最多选择9张图片</string>
 
-    <string name="but_recorder_pressed">按住说话</string>
-    <string name="but_recoreder_end">松开结束</string>
-    <string name="but_recorder_cancle">松开取消发送</string>
-
-
-
-    <string-array name="name">
-        <item>苏纪中</item>
-        <item>张胜男</item>
-        <item>李斯</item>
-        <item>王五</item>
-        <item>董翰林</item>
-        <item>陶成章</item>
-        <item>陈气门</item>
-        <item>陈独秀</item>
-        <item>黄兴</item>
-        <item>蔡锷</item>
-        <item>袁世凯</item>
-        <item>溥仪</item>
-        <item>张勋</item>
-
-    </string-array>
+    <string name="but_recorder_nor">按住\u0020说话</string>
+    <string name="but_recoredering">松开\u0020结束</string>
+    <string name="but_recorder_cancle">松开手指，取消发送</string>
 
 </resources>
