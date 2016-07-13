@@ -1,6 +1,8 @@
 package com.weixin.android.coutomview;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,7 +13,12 @@ import android.widget.RadioGroup;
  */
 public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChangeListener {
 
+
+    private static final String KEY_SAVE_STATE = "KEY_SAVE_STATE";
+    private static final String KEY_SYSTEM_STATE = "KEY_SYSTEM_STATE";
+
     private ViewPager mViewPager;
+    private int mCurrentPosition;
 
     public WechatRadioGroup(Context context) {
         super(context);
@@ -67,12 +74,13 @@ public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChan
 
     }
 
-    private void setSelectedViewChecked(int position) {
+    public void setSelectedViewChecked(int position) {
         int childCound = getChildCount();
         for (int i = 0; i < childCound; i++) {
             ((WechatRadioButton) getChildAt(i)).setChecked(false);
         }
         ((WechatRadioButton) getChildAt(position)).setChecked(true);
+        mCurrentPosition = position;
     }
 
     private void setClickedViewChecked(int position) {
@@ -81,5 +89,24 @@ public class WechatRadioGroup extends RadioGroup implements ViewPager.OnPageChan
             ((WechatRadioButton) getChildAt(i)).setRadioButtonChecked(false);
         }
         ((WechatRadioButton) getChildAt(position)).setRadioButtonChecked(true);
+        mCurrentPosition = position;
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(KEY_SYSTEM_STATE, super.onSaveInstanceState());
+        bundle.putInt(KEY_SAVE_STATE, mCurrentPosition);
+        return bundle;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state instanceof Bundle) {
+            Bundle bundle = (Bundle) state;
+            mCurrentPosition = bundle.getInt(KEY_SAVE_STATE);
+            super.onRestoreInstanceState(bundle.getParcelable(KEY_SYSTEM_STATE));
+        }
+        setClickedViewChecked(mCurrentPosition);
     }
 }

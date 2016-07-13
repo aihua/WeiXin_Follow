@@ -5,12 +5,32 @@
                 android:background="#E9E9E9"
                 android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="this is three framgnt"
-        android:textColor="#666666"
-        android:textSize="16sp"/>
+    <LinearLayout
+        android:id="@+id/rela_setting"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rela_brow"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/selector_item"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="朋友圈"
+            android:textColor="#333333"
+            android:textSize="16sp"/>
+    </LinearLayout>
 
 </RelativeLayout>

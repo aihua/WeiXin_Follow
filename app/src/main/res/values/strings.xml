@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">weixin</string>
+    <string name="app_name">weixin_follow</string>
 
     <string name="action_settings">Settings</string>
 
@@ -10,5 +10,22 @@
     <string name="no_selecte_images">您未选择任何照片</string>
     <string name="za">张</string>
     <string name="max_select_images">最多选择9张图片</string>
+
+    <string-array name="name">
+        <item>苏纪中</item>
+        <item>张胜男</item>
+        <item>李斯</item>
+        <item>王五</item>
+        <item>董翰林</item>
+        <item>陶成章</item>
+        <item>陈气门</item>
+        <item>陈独秀</item>
+        <item>黄兴</item>
+        <item>蔡锷</item>
+        <item>袁世凯</item>
+        <item>溥仪</item>
+        <item>张勋</item>
+
+    </string-array>
 
 </resources>

@@ -11,4 +11,12 @@
         android:layout_height="match_parent"
         ></ListView>
 
+    <com.grouping.android.couview.SideBar
+        android:id="@+id/sidebar"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"></com.grouping.android.couview.SideBar>
+
 </RelativeLayout>

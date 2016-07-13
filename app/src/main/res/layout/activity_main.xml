@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/view_line"
+        android:layout_below="@+id/layouttitle"
         ></android.support.v4.view.ViewPager>
 
     <View
@@ -89,5 +90,10 @@
             app:focus_color="#50ba26"
             app:focus_icon="@drawable/about_me_green"/>
     </com.weixin.android.coutomview.WechatRadioGroup>
+
+    <include
+        android:id="@+id/layouttitle"
+        layout="@layout/title_layout"
+        ></include>
 
 </RelativeLayout>

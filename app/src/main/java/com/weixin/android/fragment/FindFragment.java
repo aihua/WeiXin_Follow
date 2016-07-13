@@ -11,7 +11,7 @@ import com.weixin.android.R;
 /**
  * Created by sujizhong on 16/7/11.
  */
-public class ThreeFragment extends AppBaseFragment {
+public class FindFragment extends AppBaseFragment {
 
     @Nullable
     @Override
@@ -23,5 +23,15 @@ public class ThreeFragment extends AppBaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
     }
 }

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E9E9E9"
+            android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/userdetailtitle"
+            layout="@layout/back_title_layout"></include>
+
+        <RelativeLayout
+            android:id="@+id/rela_userinfor"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/userdetailtitle"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_item">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/image"
+                android:ellipsize="end"
+                android:maxLength="12"
+                android:text="godliness"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/rela_tag"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rela_userinfor"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_item"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:text="设置备注和标签"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/rela_tag"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#CCCCCC"></View>
+
+
+        <LinearLayout
+            android:id="@+id/rela_phone"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view1"
+            android:background="@drawable/selector_item"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:text="电话号码"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rela_moneypackage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/rela_phone"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/selector_item"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:text="地区"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/rela_moneypackage"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#CCCCCC"></View>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/rela_selfpicitures"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#CCCCCC"></View>
+
+        <LinearLayout
+            android:id="@+id/rela_selfpicitures"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/view2"
+            android:background="@drawable/selector_item"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:text="个人相册"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rela_brow"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/view3"
+            android:background="@drawable/selector_item"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:text="更多"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

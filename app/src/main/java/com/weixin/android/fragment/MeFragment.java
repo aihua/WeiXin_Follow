@@ -3,6 +3,8 @@ package com.weixin.android.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.weixin.android.R;
-import com.weixin.android.activity.MainActivity;
 import com.weixin.android.mefragment_activity.PotoActivity;
 import com.weixin.android.utils.FolderUtil;
 import com.weixin.android.utils.ImageLoader;
@@ -22,6 +23,10 @@ import com.weixin.android.utils.ImageLoader;
 public class MeFragment extends AppBaseFragment implements View.OnClickListener {
 
     private static final String TAG = MeFragment.class.getSimpleName();
+
+    private static final String KEY_PHOTOURI_SAVE = "KEY_PHOTOURI_SAVE";
+
+    private String mPhotoUri;
 
     @Nullable
     @Override
@@ -63,9 +68,10 @@ public class MeFragment extends AppBaseFragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         int id = v.getId();
+        Intent intent = new Intent();
         switch (id) {
             case R.id.rela_photo:
-                PotoActivity.openPhotoActivity((MainActivity)getContext(), FolderUtil.IMAGE_MUTIL_MODE);
+                intent.setClass(getContext(), PotoActivity.class);
                 break;
 
             case R.id.rela_pictures:
@@ -88,16 +94,37 @@ public class MeFragment extends AppBaseFragment implements View.OnClickListener 
 
             default:
                 break;
-
         }
+        startActivityForResult(intent, FolderUtil.IMAGE_ACTIVITY_RESULT);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == FolderUtil.IMAGE_ACTIVITY_RESULT && data != null) {
-            String imageUri = data.getStringExtra(FolderUtil.IMAGE_SUCESS_RESULT);
-            ImageLoader.getInstance(1, ImageLoader.Type.FIFO).loadImage(imageUri, (ImageView) getView().findViewById(R.id.image));
+            mPhotoUri = data.getStringExtra(FolderUtil.IMAGE_SUCESS_RESULT);
+            loadImage(mPhotoUri);
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(KEY_PHOTOURI_SAVE, mPhotoUri);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if (savedInstanceState != null) {
+            String imageUri = savedInstanceState.getString(KEY_PHOTOURI_SAVE);
+            loadImage(imageUri);
+        }
+        Log.e(TAG, "onViewStateRestored");
+    }
+
+    private void loadImage(String uri) {
+        if (TextUtils.isEmpty(uri)) return;
+        ImageLoader.getInstance(1, ImageLoader.Type.FIFO).loadImage(uri, (ImageView) getView().findViewById(R.id.image));
     }
 }
