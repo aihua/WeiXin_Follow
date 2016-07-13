@@ -30,6 +30,8 @@
         <activity
             android:name=".communfragmeng_activity.UserDetailActivity"
             android:screenOrientation="portrait"></activity>
+
+        <activity android:name=".communfragmeng_activity.ChatActivity"></activity>
     </application>
 
 </manifest>

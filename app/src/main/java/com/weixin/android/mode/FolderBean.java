@@ -57,7 +57,11 @@ public class FolderBean {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "FolderBean{" +
+                "dir='" + dir + '\'' +
+                ", firstImagePath='" + firstImagePath + '\'' +
+                ", name='" + name + '\'' +
+                ", count=" + count +
+                '}';
     }
-
 }

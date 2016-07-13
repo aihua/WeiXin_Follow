@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <include
+        android:id="@+id/chatactivity_title"
+        layout="@layout/back_title_layout"></include>
+
+    <ListView
+        android:id="@+id/chatactivity_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/view1"
+        android:layout_below="@+id/chatactivity_title"></ListView>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/buttonautiorecorder"
+        android:background="#CCCCCC"></View>
+
+    <com.weixin.android.coutomview.AudioRecorderButton
+        android:id="@+id/buttonautiorecorder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/selector_recorder_button"
+        android:text="@string/but_recorder_pressed"
+        android:textColor="#727272"
+        android:textSize="14sp"/>
+
+</RelativeLayout>

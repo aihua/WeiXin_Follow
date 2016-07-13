@@ -1,15 +1,18 @@
 package com.weixin.android.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.weixin.android.R;
+import com.weixin.android.communfragmeng_activity.ChatActivity;
 import com.weixin.android.currencyadapter.Bean;
 import com.weixin.android.currencyadapter.CommonBaseAdapter;
 import com.weixin.android.currencyadapter.ViewHolder;
@@ -44,11 +47,20 @@ public class HomeFragment extends AppBaseFragment {
     private void init() {
         View v = getView();
         mListView = (ListView) v.findViewById(R.id.listview);
+        mListView.setOnItemClickListener(mOnItemClickListener);
         if (Build.VERSION.SDK_INT >= 9) {
             mListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
-
     }
+
+    private ListView.OnItemClickListener mOnItemClickListener = new ListView.OnItemClickListener() {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent = new Intent(getContext(), ChatActivity.class);
+            startActivity(intent);
+        }
+    };
 
     private void setDatas() {
         List<Bean> datas = new ArrayList<>();

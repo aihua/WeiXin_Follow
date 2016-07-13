@@ -3,6 +3,8 @@ package com.weixin.android.fragment;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +38,13 @@ public class CommunFragment extends AppBaseFragment {
     private ClientComparator mClientComparator;
     private CharacterParser mCharacterParser;
 
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            mListView.setSelection(msg.what);
+        }
+    };
 
     @Nullable
     @Override
@@ -84,7 +93,7 @@ public class CommunFragment extends AppBaseFragment {
         public void onTouchingLetterChanged(String s) {
             int position = mGroupingAdapter.getPositionForSection(s.charAt(0));
             if (position != -1) {
-                mListView.setSelection(position);
+                mHandler.sendEmptyMessage(position);
             }
         }
     };

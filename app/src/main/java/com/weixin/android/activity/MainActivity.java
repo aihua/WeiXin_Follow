@@ -11,14 +11,17 @@ import android.widget.TextView;
 
 import com.weixin.android.R;
 import com.weixin.android.coutomview.WechatRadioGroup;
-import com.weixin.android.fragment.HomeFragment;
-import com.weixin.android.fragment.MeFragment;
 import com.weixin.android.fragment.CommunFragment;
 import com.weixin.android.fragment.FindFragment;
+import com.weixin.android.fragment.HomeFragment;
+import com.weixin.android.fragment.MeFragment;
 
 public class MainActivity extends AppBaseActivity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private static final String KEY_SAVE_CURRENT_POSTION = "KEY_SAVE_CURRENTPOSTION";
+    private int mPosition;
 
     private final int mFragmentSize = 4;
 
@@ -30,7 +33,7 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
     private TextView mTextTitle;
     private LinearLayout mLinearAdd;
 
-    private HomeFragment mOneFragment;
+    private HomeFragment mHomeFragment;
     private CommunFragment mCommunFragment;
     private FindFragment mFindFragment;
     private MeFragment mFourFragment;
@@ -38,7 +41,6 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
         init();
     }
@@ -78,35 +80,36 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
 
         @Override
         public Fragment getItem(int position) {
+            MainActivity.this.mPosition = position;
             switch (position) {
-                case 0:
-                    if (mOneFragment == null) {
-                        mOneFragment = new HomeFragment();
-                        return mOneFragment;
+                case 0: {
+                    if (mHomeFragment == null) {
+                        mHomeFragment = new HomeFragment();
                     }
-                    break;
-                case 1:
+                    return mHomeFragment;
+                }
+                case 1: {
                     if (mCommunFragment == null) {
                         mCommunFragment = new CommunFragment();
-                        return mCommunFragment;
                     }
-                    break;
-                case 2:
+                    return mCommunFragment;
+                }
+                case 2: {
                     if (mFindFragment == null) {
                         mFindFragment = new FindFragment();
-                        return mFindFragment;
                     }
-                    break;
-                case 3:
+                    return mFindFragment;
+                }
+                case 3: {
                     if (mFourFragment == null) {
                         mFourFragment = new MeFragment();
-                        return mFourFragment;
                     }
-                    break;
+                    return mFourFragment;
+                }
                 default:
                     break;
             }
-            return mOneFragment;
+            return mHomeFragment;
         }
 
         @Override
@@ -118,11 +121,17 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putInt(KEY_SAVE_CURRENT_POSTION, mPosition);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            int position = savedInstanceState.getInt(KEY_SAVE_CURRENT_POSTION);
+            mViewPager.setCurrentItem(position);
+            mWechartRadioGroup.setClickedViewChecked(position);
+        }
     }
 
     private void setTitle(String title) {
