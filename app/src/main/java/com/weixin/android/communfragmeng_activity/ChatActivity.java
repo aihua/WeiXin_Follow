@@ -35,6 +35,7 @@ public class ChatActivity extends AppBaseActivity {
         back.setOnClickListener(mOnClickListener);
 
         TextView add = (TextView) findViewById(R.id.text_config);
+        add.setText("+");
         add.setOnClickListener(mOnClickListener);
 
         mListView = (ListView) findViewById(R.id.chatactivity_listview);

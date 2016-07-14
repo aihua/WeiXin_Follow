@@ -74,7 +74,7 @@ public class ImageAdapter extends BaseAdapter {
         imageHolder.mImage_Btn.setImageResource(mSet.contains(position) ? R.drawable.pictures_selected : R.drawable.picture_unselected);
         imageHolder.mImage.setImageDrawable(null);
         String itemBean = mImageLists.get(position);
-        ImageLoader.getInstance(mThreadCount, ImageLoader.Type.FIFO).loadImage(itemBean, imageHolder.mImage);
+        ImageLoader.getInstance(mThreadCount, ImageLoader.Type.LIFO).loadImage(itemBean, imageHolder.mImage);
         imageHolder.mImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

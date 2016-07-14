@@ -15,4 +15,7 @@
     <string name="but_recoredering">松开\u0020结束</string>
     <string name="but_recorder_cancle">松开手指，取消发送</string>
 
+    <string name="sleekhead_cancle">上滑手指，取消发送</string>
+    <string name="undohead_cancle">松开手指，取消发送</string>
+
 </resources>
