@@ -1,6 +1,8 @@
 package com.weixin.android.coutomview;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.Button;
@@ -16,6 +18,9 @@ public class AudioRecorderButton extends Button {
 
     private static final String TAG = AudioRecorderButton.class.getSimpleName();
 
+    private final int MSG_DISMISS = 0;
+    private final int MSG_SHOW_RECORDER = 1;
+
     private final int DISTANCE_Y_CANCLE = 50;
 
     private static final int STATE_NOR = 0;
@@ -26,6 +31,25 @@ public class AudioRecorderButton extends Button {
 
     private boolean mIsRecordering = false;
     private Context mCxt;
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            int what = msg.what;
+            switch (what) {
+                case MSG_DISMISS:
+                    dismissRecorderingDialog();
+                    break;
+
+                case MSG_SHOW_RECORDER:
+                    showRecorderingDialog();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     public AudioRecorderButton(Context context) {
         this(context, null);
@@ -45,6 +69,7 @@ public class AudioRecorderButton extends Button {
             case MotionEvent.ACTION_DOWN:
                 mIsRecordering = true;
                 changeCurrentState(STATE_RECORDERING);
+                //开始计时  录音
                 break;
 
             case MotionEvent.ACTION_MOVE:
@@ -110,18 +135,20 @@ public class AudioRecorderButton extends Button {
             showRecorderingDialog();
             switchRecorderingState(true);
 //            Toast.makeText(getContext(), "正在录音", Toast.LENGTH_SHORT).show();
-
         }
     }
 
     private void getCurrentState() {
-        DialogUtil.getInstance().dismiss();
+        dismissRecorderingDialog();
         switch (mCurrentState) {
             case STATE_NOR:
                 break;
 
             case STATE_RECORDERING:
+                //计算时常大小
+//                showRecorderTimeShort();
                 Toast.makeText(getContext(), "发送语音", Toast.LENGTH_SHORT).show();
+
                 //发送语音
                 break;
 
@@ -145,6 +172,16 @@ public class AudioRecorderButton extends Button {
     }
 
     private void switchRecorderingState(boolean bool) {
-        DialogUtil.getInstance(mCxt).switchDialogState(bool);
+        DialogUtil.getInstance().switchDialogState(bool);
+    }
+
+    private void dismissRecorderingDialog() {
+        DialogUtil.getInstance().dismiss();
+    }
+
+    private void showRecorderTimeShort() {
+        showRecorderingDialog();
+        DialogUtil.getInstance().switchDialogTimeShort();
+        mHandler.sendEmptyMessageDelayed(MSG_DISMISS, 500);
     }
 }

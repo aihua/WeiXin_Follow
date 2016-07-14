@@ -17,5 +17,6 @@
 
     <string name="sleekhead_cancle">上滑手指，取消发送</string>
     <string name="undohead_cancle">松开手指，取消发送</string>
+    <string name="recodering_time_shorter">录音时间太短</string>
 
 </resources>

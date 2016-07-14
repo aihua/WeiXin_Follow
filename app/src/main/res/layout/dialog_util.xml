@@ -44,10 +44,11 @@
             android:src="@drawable/recorder"/>
 
         <ImageView
+            android:id="@+id/image_anim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:src="@drawable/v1"/>
+            android:src="@drawable/recodering"/>
     </LinearLayout>
 
 </FrameLayout>
