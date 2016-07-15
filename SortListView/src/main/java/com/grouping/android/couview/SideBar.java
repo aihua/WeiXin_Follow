@@ -21,15 +21,13 @@ public class SideBar extends View {
 
     private OnTouchingLetterChangedListener mOnTouchingLetterChangedListener;
 
-    public static String[] mChar = {"A", "B", "C", "D", "E", "F",
-
-            "G", "H", "I", "J", "K", "L",
+    public static String[] mChar = {"#", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
 
             "M", "N", "O", "P", "Q", "R",
 
             "S", "T", "U", "V", "W", "X",
 
-            "Y", "Z", "#"};
+            "Y", "Z"};
 
     private static int[] mColor = {R.color.black, R.color.blue, R.color.gray, R.color.green, R.color.ltgray, R.color.red, R.color.white,};
 

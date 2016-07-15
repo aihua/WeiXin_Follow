@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.weixin.android.R;
+import com.weixin.android.activity.MainActivity;
 
 /**
  * Created by sujizhong on 16/7/11.
@@ -23,6 +24,8 @@ public class FindFragment extends AppBaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        ((MainActivity)getActivity()).setTabThreeRemind("200", true);
     }
 
     @Override

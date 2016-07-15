@@ -38,6 +38,11 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
     private FindFragment mFindFragment;
     private MeFragment mFourFragment;
 
+    private TextView mTextTabOneRemind;
+    private TextView mTextTabTwoRemind;
+    private TextView mTextTabThreeRemind;
+    private TextView mText_TabFourReming;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,10 +59,21 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
 
         mWechartRadioGroup = (WechatRadioGroup) findViewById(R.id.radiogroup);
         mWechartRadioGroup.setViewPager(mViewPager);
+        toolBar();
+        initNews();
+    }
 
+    private void toolBar() {
         mTextTitle = (TextView) findViewById(R.id.texttitle);
         mLinearAdd = (LinearLayout) findViewById(R.id.linearadd);
         mLinearAdd.setOnClickListener(this);
+    }
+
+    private void initNews() {
+        mTextTabOneRemind = (TextView) findViewById(R.id.tabone_remind);
+        mTextTabTwoRemind = (TextView) findViewById(R.id.tabtow_remind);
+        mTextTabThreeRemind = (TextView) findViewById(R.id.tabthree_remind);
+        mText_TabFourReming = (TextView) findViewById(R.id.tabfour_remind);
     }
 
     @Override
@@ -83,29 +99,21 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
             MainActivity.this.mPosition = position;
             switch (position) {
                 case 0: {
-                    if (mHomeFragment == null) {
-                        mHomeFragment = new HomeFragment();
-                    }
-                    return mHomeFragment;
+                    return createHomeFragment();
                 }
+
                 case 1: {
-                    if (mCommunFragment == null) {
-                        mCommunFragment = new CommunFragment();
-                    }
-                    return mCommunFragment;
+                    return createCommunFragment();
                 }
+
                 case 2: {
-                    if (mFindFragment == null) {
-                        mFindFragment = new FindFragment();
-                    }
-                    return mFindFragment;
+                    return createFindFragment();
                 }
+
                 case 3: {
-                    if (mFourFragment == null) {
-                        mFourFragment = new MeFragment();
-                    }
-                    return mFourFragment;
+                    return createMeFragment();
                 }
+
                 default:
                     break;
             }
@@ -116,6 +124,80 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
         public int getCount() {
             return mFragmentSize;
         }
+    }
+
+    private HomeFragment createHomeFragment() {
+        if (mHomeFragment == null) {
+            mHomeFragment = new HomeFragment();
+        }
+        return mHomeFragment;
+    }
+
+    private CommunFragment createCommunFragment() {
+        if (mCommunFragment == null) {
+            mCommunFragment = new CommunFragment();
+        }
+        return mCommunFragment;
+    }
+
+    private FindFragment createFindFragment() {
+        if (mFindFragment == null) {
+            mFindFragment = new FindFragment();
+        }
+        return mFindFragment;
+    }
+
+    private MeFragment createMeFragment() {
+        if (mFourFragment == null) {
+            mFourFragment = new MeFragment();
+        }
+        return mFourFragment;
+    }
+
+    private void setTitle(String title) {
+        mTextTitle.setText(title);
+    }
+
+    private String remindNum(String msg) {
+        return (Integer.parseInt(msg) > 99 ? "99" : msg);
+    }
+
+    public void setTabOneRemind(String msg, boolean isVisiable) {
+        if (isVisiable) {
+            mTextTabOneRemind.setText(remindNum(msg));
+            mTextTabOneRemind.setVisibility(View.VISIBLE);
+            return;
+        }
+        mTextTabOneRemind.setVisibility(View.GONE);
+    }
+
+    public void setTabTwoRemind(String msg, boolean isVisiable) {
+        if (isVisiable) {
+            mTextTabTwoRemind.setText(remindNum(msg));
+            mTextTabTwoRemind.setVisibility(View.VISIBLE);
+            return;
+        }
+        mTextTabTwoRemind.setVisibility(View.GONE);
+    }
+
+    public void setTabThreeRemind(String msg, boolean isVisiable) {
+        if (isVisiable) {
+            mTextTabThreeRemind.setText(remindNum(msg));
+            mTextTabThreeRemind.setVisibility(View.VISIBLE);
+            return;
+        }
+        mTextTabThreeRemind.setVisibility(View.GONE);
+
+    }
+
+    public void setTabFourRemind(String msg, boolean isVisiable) {
+        if (isVisiable) {
+            mText_TabFourReming.setText(remindNum(msg));
+            mText_TabFourReming.setVisibility(View.VISIBLE);
+            return;
+        }
+        mText_TabFourReming.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -134,7 +216,4 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
         }
     }
 
-    private void setTitle(String title) {
-        mTextTitle.setText(title);
-    }
 }

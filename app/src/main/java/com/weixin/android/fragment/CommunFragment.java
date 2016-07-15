@@ -18,6 +18,7 @@ import com.grouping.android.mode.GroupingModel;
 import com.grouping.android.utils.CharacterParser;
 import com.grouping.android.utils.ClientComparator;
 import com.weixin.android.R;
+import com.weixin.android.activity.MainActivity;
 import com.weixin.android.communfragmeng_activity.UserDetailActivity;
 
 import java.util.ArrayList;
@@ -77,6 +78,7 @@ public class CommunFragment extends AppBaseFragment {
         mCharacterParser = CharacterParser.getInstance();
 
         setDatas();
+        ((MainActivity)getActivity()).setTabTwoRemind("", false);
     }
 
     private ListView.OnItemClickListener mOnItemClickListener = new ListView.OnItemClickListener() {

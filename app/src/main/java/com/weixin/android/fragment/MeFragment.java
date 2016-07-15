@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.weixin.android.R;
+import com.weixin.android.activity.MainActivity;
 import com.weixin.android.mefragment_activity.PotoActivity;
 import com.weixin.android.utils.FolderUtil;
 import com.weixin.android.utils.ImageLoader;
@@ -39,6 +39,8 @@ public class MeFragment extends AppBaseFragment implements View.OnClickListener 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         init();
+
+        ((MainActivity)getActivity()).setTabFourRemind("", false);
     }
 
     private void init() {
@@ -120,7 +122,6 @@ public class MeFragment extends AppBaseFragment implements View.OnClickListener 
             String imageUri = savedInstanceState.getString(KEY_PHOTOURI_SAVE);
             loadImage(imageUri);
         }
-        Log.e(TAG, "onViewStateRestored");
     }
 
     private void loadImage(String uri) {

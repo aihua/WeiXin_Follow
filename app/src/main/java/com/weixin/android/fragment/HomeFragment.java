@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.weixin.android.R;
+import com.weixin.android.activity.MainActivity;
 import com.weixin.android.communfragmeng_activity.ChatActivity;
 import com.weixin.android.currencyadapter.Bean;
 import com.weixin.android.currencyadapter.CommonBaseAdapter;
@@ -29,6 +30,12 @@ public class HomeFragment extends AppBaseFragment {
     private ListView mListView;
     private ChatAdapter mChatAdapter;
 
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
 
     @Nullable
     @Override
@@ -51,6 +58,8 @@ public class HomeFragment extends AppBaseFragment {
         if (Build.VERSION.SDK_INT >= 9) {
             mListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
+
+        ((MainActivity)getActivity()).setTabOneRemind("10", true);
     }
 
     private ListView.OnItemClickListener mOnItemClickListener = new ListView.OnItemClickListener() {
