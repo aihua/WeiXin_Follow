@@ -4,7 +4,7 @@
 
 ####底部菜单滑动渐变效果####
 
-![alt text](https://github.com/XinYang5120/WeiXin_Follow/blob/master/images/device-2016-07-13-142202.png)
+![alt text](https://github.com/XinYang5120/WeiXin_Follow/blob/master/images/device-2016-07-15-153441.png)
 
 ####仿通讯录####
 
