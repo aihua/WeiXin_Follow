@@ -187,7 +187,6 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
             return;
         }
         mTextTabThreeRemind.setVisibility(View.GONE);
-
     }
 
     public void setTabFourRemind(String msg, boolean isVisiable) {
@@ -197,7 +196,6 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
             return;
         }
         mText_TabFourReming.setVisibility(View.GONE);
-
     }
 
     @Override

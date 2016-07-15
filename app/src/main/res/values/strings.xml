@@ -19,4 +19,9 @@
     <string name="undohead_cancle">松开手指，取消发送</string>
     <string name="recodering_time_shorter">录音时间太短</string>
 
+    <string name="tab_one_text">微信</string>
+    <string name="tab_two_text">通讯录</string>
+    <string name="tab_three_text">发现</string>
+    <string name="tab_four_text">我</string>
+
 </resources>

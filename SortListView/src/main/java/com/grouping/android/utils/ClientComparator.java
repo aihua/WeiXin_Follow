@@ -16,6 +16,12 @@ public class ClientComparator implements Comparator<GroupingModel> {
             return -1;
         } else if (lhs.textGrouptitle.equals("[0-9]") || rhs.textGrouptitle.equals("[0-9]")) {
             return -1;
+        } else if (lhs.textGrouptitle.charAt(0) > rhs.textGrouptitle.charAt(0)) {
+            return 1;
+        } else if (lhs.textGrouptitle.charAt(0) < rhs.textGrouptitle.charAt(0)) {
+            return -1;
+        } else if (lhs.textGrouptitle.charAt(0) == rhs.textGrouptitle.charAt(0)) {
+            return 0;
         } else {
             return lhs.textGrouptitle.compareTo(rhs.textGrouptitle);
         }

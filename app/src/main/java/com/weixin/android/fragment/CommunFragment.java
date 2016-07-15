@@ -78,7 +78,7 @@ public class CommunFragment extends AppBaseFragment {
         mCharacterParser = CharacterParser.getInstance();
 
         setDatas();
-        ((MainActivity)getActivity()).setTabTwoRemind("", false);
+        ((MainActivity) getActivity()).setTabTwoRemind("", false);
     }
 
     private ListView.OnItemClickListener mOnItemClickListener = new ListView.OnItemClickListener() {
@@ -112,9 +112,13 @@ public class CommunFragment extends AppBaseFragment {
             groupingModel.textGrouptitle = pinyin;
             groupingModels.add(groupingModel);
         }
-        Collections.sort(groupingModels, mClientComparator);
+        try {
+            System.setProperty("java.util.Arrays.useLegacyMergeSort", "true");
+            Collections.sort(groupingModels, mClientComparator);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         mGroupingAdapter.setData(groupingModels);
-
     }
 
     @Override

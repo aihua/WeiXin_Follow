@@ -3,8 +3,14 @@
 
     <string-array name="date">
         <item>苏辉</item>
+        <item>苏辉</item>
+        <item>苏纪中</item>
+        <item>苏纪中</item>
+        <item>苏纪中</item>
         <item>苏纪中</item>
         <item>苏崇元</item>
+        <item>苏俊仁</item>
+        <item>苏俊仁</item>
         <item>张会杰</item>
         <item>张忠月</item>
         <item>秀野堂主</item>
@@ -54,5 +60,17 @@
         <item>$797835344$</item>
         <item>Jack</item>
         <item>~夏先生</item>
+        <item>吉林省地方</item>
+        <item>收代理费</item>
+        <item>身份</item>
+        <item>问题</item>
+        <item>说过</item>
+        <item>热天</item>
+
+
+
+
+
+
     </string-array>
 </resources>

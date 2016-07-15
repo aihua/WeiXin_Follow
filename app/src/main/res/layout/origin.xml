@@ -62,7 +62,6 @@
             android:layout_marginRight="16dp"
             android:background="@drawable/shape_origin"
             android:gravity="center"
-            android:text="5"
             android:textColor="#FFFFFF"
             android:textSize="10sp"
             />
