@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.weixin.android.R;
 import com.weixin.android.activity.MainActivity;
@@ -25,8 +26,61 @@ public class FindFragment extends AppBaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ((MainActivity)getActivity()).setTabThreeRemind("200", true);
+        ((MainActivity) getActivity()).setTabThreeRemind("200", true);
+        init();
     }
+
+    private void init() {
+        View v = getView();
+        RelativeLayout friend = (RelativeLayout) v.findViewById(R.id.rela_friend);
+        friend.setOnClickListener(mOnClickListener);
+        RelativeLayout sys = (RelativeLayout) v.findViewById(R.id.rela_sys);
+        sys.setOnClickListener(mOnClickListener);
+        RelativeLayout yay = (RelativeLayout) v.findViewById(R.id.rela_yay);
+        yay.setOnClickListener(mOnClickListener);
+        RelativeLayout fjr = (RelativeLayout) v.findViewById(R.id.rela_fjr);
+        fjr.setOnClickListener(mOnClickListener);
+        RelativeLayout plp = (RelativeLayout) v.findViewById(R.id.rela_plp);
+        plp.setOnClickListener(mOnClickListener);
+        RelativeLayout gw = (RelativeLayout) v.findViewById(R.id.rela_gw);
+        gw.setOnClickListener(mOnClickListener);
+        RelativeLayout yx = (RelativeLayout) v.findViewById(R.id.rela_yx);
+        yx.setOnClickListener(mOnClickListener);
+
+    }
+
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            int id = v.getId();
+            switch (id) {
+                case R.id.rela_friend:
+                    break;
+                case R.id.rela_sys:
+                    break;
+
+                case R.id.rela_yay:
+                    break;
+
+                case R.id.rela_fjr:
+                    break;
+
+                case R.id.rela_plp:
+                    break;
+
+                case R.id.rela_gw:
+                    break;
+
+                case R.id.rela_yx:
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+    };
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

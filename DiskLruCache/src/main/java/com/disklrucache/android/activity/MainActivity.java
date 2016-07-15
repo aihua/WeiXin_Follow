@@ -1,7 +1,6 @@
 package com.disklrucache.android.activity;
 
 import android.annotation.TargetApi;
-import android.disklrucache.com.disklrucache.R;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.disklrucache.android.R;
 import com.disklrucache.android.diskcache.cachemanager.DiskCacheManager;
 
 import java.io.File;

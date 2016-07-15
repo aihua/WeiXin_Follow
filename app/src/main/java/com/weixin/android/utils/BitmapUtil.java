@@ -1,4 +1,4 @@
-package com.photoswall.android.utils;
+package com.weixin.android.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.disklrucache.android.diskcache.cachemanager.DiskCacheManager;
 
 import java.lang.reflect.Field;
 
@@ -19,40 +21,43 @@ public class BitmapUtil {
     private static BitmapUtil mBitmapUtil = null;
     private static final int IMAGEREAULT = 0x00000000;
 
-    private BitmapUtil(){}
+    private BitmapUtil() {
+    }
 
-    protected Handler mHandler = new Handler(){
+    protected Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case IMAGEREAULT:
                     ImageInfor imageInfor = (ImageInfor) msg.obj;
                     imageInfor.mImage.setImageBitmap(imageInfor.mBitmap);
+                    DiskCacheManager.getInstance().put("BitmapUtil", imageInfor.mBitmap);
                     break;
 
                 default:
                     break;
             }
-
         }
     };
 
-    public static BitmapUtil getBitmapFactory(){
-        if(mBitmapUtil == null){
-            synchronized (BitmapUtil.class){
-                mBitmapUtil = new BitmapUtil();
+    public static BitmapUtil getBitmapFactory() {
+        if (mBitmapUtil == null) {
+            synchronized (BitmapUtil.class) {
+                if (mBitmapUtil == null) {
+                    mBitmapUtil = new BitmapUtil();
+                }
             }
         }
         return mBitmapUtil;
     }
 
-    public void loadLocalImage(final String path, final ImageView v){
-        new Thread(){
+    public void loadLocalImage(final String path, final ImageView v) {
+        new Thread() {
             @Override
             public void run() {
-                if(TextUtils.isEmpty(path)){
+                if (TextUtils.isEmpty(path)) {
                 }
                 ImageSize imageSize = getImageSize(v);
                 Bitmap bitmap = decodeBitmapFromLocalPath(path, imageSize.mImageWidth, imageSize.mImageHeight);
@@ -68,7 +73,7 @@ public class BitmapUtil {
 
     }
 
-    private ImageSize getImageSize(ImageView imageView){
+    private ImageSize getImageSize(ImageView imageView) {
         ImageSize imageSize = new ImageSize();
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         DisplayMetrics displayMetrics = imageView.getContext().getResources().getDisplayMetrics();
@@ -138,17 +143,17 @@ public class BitmapUtil {
         return value;
     }
 
-    private class ImageSize{
+    private class ImageSize {
         public int mImageWidth;
         public int mImageHeight;
     }
 
-    private class ImageInfor{
+    private class ImageInfor {
         public Bitmap mBitmap = null;
         public ImageView mImage = null;
     }
 
-    public interface onImageLoadResult{
+    public interface onImageLoadResult {
         void onImageReault(Bitmap bitmap);
     }
 

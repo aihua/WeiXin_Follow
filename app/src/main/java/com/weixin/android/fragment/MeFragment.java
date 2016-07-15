@@ -40,7 +40,7 @@ public class MeFragment extends AppBaseFragment implements View.OnClickListener 
         super.onActivityCreated(savedInstanceState);
         init();
 
-        ((MainActivity)getActivity()).setTabFourRemind("", false);
+        ((MainActivity) getActivity()).setTabFourRemind("", false);
     }
 
     private void init() {
